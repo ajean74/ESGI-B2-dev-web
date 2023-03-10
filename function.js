@@ -41,7 +41,34 @@ function tableauChaineDeCaractere(chaine2) {
 console.log(tableauChaineDeCaractere(["p","L","o","H","L","c","I","w","w","J","d","n","g","V","r","z","f","z","I","m","C","d","o","s","L","m","O","l","g","w","H","X","Y","L","q","U","A","z","I","X","V","p","l","U","S","D","T","S","n","x","h","M","u","B","Q","O","y","T","q","X","L","F","D","k","y","p","b","u","e","T","k","t","q","G","s","j","D","h","a","Q","M","j","Z","s","Q","q","p","M","B","F","H","u","z","n","y","f","F","g","W","s"]));
 
 //Exo 5 
+function nombreEnMot(nombre){
+    const chiffres = ["zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
+    const exeception = ["", "onze", "douze", "treize", "quatorze", "quinze", "seize"];
+    const dizaines = ["", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt", "quatre-vingt-dix"];
+    if(nombre < 10){
+        return chiffres[nombre];
+    }else{
+        let diz = parseInt(nombre / 10);
+        let ch = nombre % 10;
+        let resultat = "";
+        if(ch == 0){
+            resultat = dizaines[diz];
+        }else{
+            if(diz == 1 || diz == 7 || diz == 9){
+                if(diz == 1){
+                    resultat = exeception[ch]
+                }else{
+                    resultat = dizaines[diz-1] + "-" + exeception[ch]
+                }
+            }else{
+                resultat = dizaines[diz] + "-" + chiffres[ch];
+            }
+        }
+        return resultat;
+    }
+}
 
+console.log(nombreEnMot(45));
 
 //Exo 6
 const tableauObjet = [
